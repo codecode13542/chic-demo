@@ -1,100 +1,98 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chic Ballroom – Măgurele, Prahova | Nunți de lux</title>
-  <meta name="description" content="Chic Ballroom din Măgurele, Prahova – salon de evenimente elegant pentru nunți memorabile.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- SDK Supabase Client -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    tailwind.config = { theme: { extend: { fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] } } } };
-  </script>
-  <style>
-    :root{ --ink:#0d0b09; --coal:#161310; --card:#1d1914; --champagne:#f3e6cf; --muted:#b4a78f;
-      --gold1:#f6e3a1; --gold2:#d4a94c; --gold3:#8d6a22; }
-    html{ scroll-behavior:smooth; }
-    body{ background:var(--ink); color:var(--champagne); font-family:'Plus Jakarta Sans',sans-serif; overflow-x:hidden; }
-    .gold-text{ background:linear-gradient(110deg,var(--gold1),var(--gold2) 45%,var(--gold3) 70%,var(--gold1));
-      background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shine 7s linear infinite; }
-    @keyframes shine{ to{ background-position:200% center; } }
-    .gold-line{ height:1px; background:linear-gradient(90deg,transparent,var(--gold2),transparent); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chic Ballroom – Măgurele, Prahova | Nunți de lux</title>
+<meta name="description" content="Chic Ballroom din Măgurele, Prahova – salon de evenimente elegant pentru nunți memorabile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: {
+    serif: ['"Playfair Display"', 'Georgia', 'serif'],
+    sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] } } } };
+</script>
+<style>
+  :root{ --ink:#0d0b09; --coal:#161310; --card:#1d1914; --champagne:#f3e6cf; --muted:#b4a78f;
+         --gold1:#f6e3a1; --gold2:#d4a94c; --gold3:#8d6a22; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--ink); color:var(--champagne); font-family:'Plus Jakarta Sans',sans-serif; overflow-x:hidden; }
+  .gold-text{ background:linear-gradient(110deg,var(--gold1),var(--gold2) 45%,var(--gold3) 70%,var(--gold1));
+              background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:shine 7s linear infinite; }
+  @keyframes shine{ to{ background-position:200% center; } }
+  .gold-line{ height:1px; background:linear-gradient(90deg,transparent,var(--gold2),transparent); }
 
-    /* Buton cu strălucire (glow + sweep) */
-    .btn-gold{ position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
-      padding:1rem 2.2rem; border-radius:999px; font-weight:600; letter-spacing:.02em; color:#1a1305;
-      background:linear-gradient(110deg,var(--gold1),var(--gold2) 55%,var(--gold3)); box-shadow:0 0 0 rgba(212,169,76,0);
-      transition:transform .35s, box-shadow .35s; }
-    .btn-gold::after{ content:""; position:absolute; top:0; left:-120%; width:60%; height:100%;
-      background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-20deg); transition:left .7s; }
-    .btn-gold:hover{ transform:translateY(-2px); box-shadow:0 10px 40px rgba(212,169,76,.45); }
-    .btn-gold:hover::after{ left:150%; }
-    .btn-gold:disabled{ opacity:.45; cursor:not-allowed; transform:none; box-shadow:none; }
-    .btn-ghost{ border:1px solid rgba(212,169,76,.5); color:var(--gold1); padding:.9rem 1.8rem; border-radius:999px; transition:.3s; }
-    .btn-ghost:hover{ background:rgba(212,169,76,.12); box-shadow:0 0 30px rgba(212,169,76,.25); }
-    :focus-visible{ outline:2px solid var(--gold2); outline-offset:3px; }
+  /* Buton cu strălucire (glow + sweep) */
+  .btn-gold{ position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+    padding:1rem 2.2rem; border-radius:999px; font-weight:600; letter-spacing:.02em; color:#1a1305;
+    background:linear-gradient(110deg,var(--gold1),var(--gold2) 55%,var(--gold3)); box-shadow:0 0 0 rgba(212,169,76,0);
+    transition:transform .35s, box-shadow .35s; }
+  .btn-gold::after{ content:""; position:absolute; top:0; left:-120%; width:60%; height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-20deg); transition:left .7s; }
+  .btn-gold:hover{ transform:translateY(-2px); box-shadow:0 10px 40px rgba(212,169,76,.45); }
+  .btn-gold:hover::after{ left:150%; }
+  .btn-gold:disabled{ opacity:.45; cursor:not-allowed; transform:none; box-shadow:none; }
+  .btn-ghost{ border:1px solid rgba(212,169,76,.5); color:var(--gold1); padding:.9rem 1.8rem; border-radius:999px; transition:.3s; }
+  .btn-ghost:hover{ background:rgba(212,169,76,.12); box-shadow:0 0 30px rgba(212,169,76,.25); }
+  :focus-visible{ outline:2px solid var(--gold2); outline-offset:3px; }
 
-    /* Reveal la scroll */
-    .reveal{ opacity:0; transform:translateY(40px); transition:opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
-    .reveal.in{ opacity:1; transform:none; }
-    .d1{ transition-delay:.12s } .d2{ transition-delay:.24s } .d3{ transition-delay:.36s }
+  /* Reveal la scroll */
+  .reveal{ opacity:0; transform:translateY(40px); transition:opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  .d1{ transition-delay:.12s } .d2{ transition-delay:.24s } .d3{ transition-delay:.36s }
 
-    /* Hero */
-    .hero-bg{ position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=80') center/cover;
-      transform:scale(1.08); animation:kb 24s ease-in-out infinite alternate; }
-    @keyframes kb{ to{ transform:scale(1.2) translateY(-1.5%); } }
-    .hero-veil{ position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(13,11,9,.55),rgba(13,11,9,.92) 80%), linear-gradient(to bottom,rgba(13,11,9,.5),var(--ink)); }
-    .hero-in{ opacity:0; transform:translateY(30px); animation:up 1.4s cubic-bezier(.2,.7,.2,1) forwards; }
-    @keyframes up{ to{ opacity:1; transform:none; } }
+  /* Hero */
+  .hero-bg{ position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=80') center/cover;
+    transform:scale(1.08); animation:kb 24s ease-in-out infinite alternate; }
+  @keyframes kb{ to{ transform:scale(1.2) translateY(-1.5%); } }
+  .hero-veil{ position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(13,11,9,.55),rgba(13,11,9,.92) 80%), linear-gradient(to bottom,rgba(13,11,9,.5),var(--ink)); }
+  .hero-in{ opacity:0; transform:translateY(30px); animation:up 1.4s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes up{ to{ opacity:1; transform:none; } }
 
-    /* Navigație */
-    #nav{ transition:.4s; }
-    #nav.solid{ background:rgba(13,11,9,.82); backdrop-filter:blur(14px); border-bottom:1px solid rgba(212,169,76,.2); }
+  /* Navigație */
+  #nav{ transition:.4s; }
+  #nav.solid{ background:rgba(13,11,9,.82); backdrop-filter:blur(14px); border-bottom:1px solid rgba(212,169,76,.2); }
 
-    /* Carduri & galerie */
-    .card{ background:linear-gradient(160deg,var(--card),var(--coal)); border:1px solid rgba(212,169,76,.18); border-radius:1.25rem; transition:.5s; }
-    .card:hover{ border-color:rgba(212,169,76,.55); transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 40px rgba(212,169,76,.08); }
-    .g-item{ position:relative; overflow:hidden; border-radius:1rem; cursor:zoom-in; background:linear-gradient(135deg,#2a2218,#15110c); }
-    .g-item img{ width:100%; height:100%; object-fit:cover; transition:transform 1.1s cubic-bezier(.2,.7,.2,1); }
-    .g-item:hover img{ transform:scale(1.12); }
-    .g-item::after{ content:attr(data-cap); position:absolute; left:0; right:0; bottom:0; padding:2rem 1rem 1rem; font-family:'Playfair Display',serif; font-style:italic;
-      background:linear-gradient(transparent,rgba(0,0,0,.8)); opacity:0; transform:translateY(10px); transition:.5s; }
-    .g-item:hover::after{ opacity:1; transform:none; }
+  /* Carduri & galerie */
+  .card{ background:linear-gradient(160deg,var(--card),var(--coal)); border:1px solid rgba(212,169,76,.18); border-radius:1.25rem; transition:.5s; }
+  .card:hover{ border-color:rgba(212,169,76,.55); transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 40px rgba(212,169,76,.08); }
+  .g-item{ position:relative; overflow:hidden; border-radius:1rem; cursor:zoom-in; background:linear-gradient(135deg,#2a2218,#15110c); }
+  .g-item img{ width:100%; height:100%; object-fit:cover; transition:transform 1.1s cubic-bezier(.2,.7,.2,1); }
+  .g-item:hover img{ transform:scale(1.12); }
+  .g-item::after{ content:attr(data-cap); position:absolute; left:0; right:0; bottom:0; padding:2rem 1rem 1rem; font-family:'Playfair Display',serif; font-style:italic;
+    background:linear-gradient(transparent,rgba(0,0,0,.8)); opacity:0; transform:translateY(10px); transition:.5s; }
+  .g-item:hover::after{ opacity:1; transform:none; }
 
-    /* Calendar */
-    .day{ aspect-ratio:1; border-radius:999px; font-size:.9rem; transition:.25s; }
-    .day:not(:disabled):hover{ background:rgba(212,169,76,.18); }
-    .day:disabled{ color:#5b5242; cursor:not-allowed; text-decoration:line-through; text-decoration-color:rgba(255,255,255,.1); }
-    .day.sel{ background:linear-gradient(135deg,var(--gold1),var(--gold2)); color:#1a1305; font-weight:700; box-shadow:0 0 22px rgba(212,169,76,.6); }
-    .day.today{ box-shadow:inset 0 0 0 1px var(--gold2); }
-    .field{ width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(212,169,76,.25); border-radius:.9rem; padding:1rem 1.1rem; color:var(--champagne); transition:.3s; }
-    .field::placeholder{ color:#7d725f; }
-    .field:focus{ outline:none; border-color:var(--gold2); box-shadow:0 0 0 4px rgba(212,169,76,.15); }
-    .field.bad{ border-color:#d96a5b; }
-    .step{ display:none; } .step.active{ display:block; animation:up .6s forwards; opacity:0; }
-    .dot{ height:4px; flex:1; border-radius:4px; background:rgba(212,169,76,.2); overflow:hidden; }
-    .dot i{ display:block; height:100%; width:0; background:linear-gradient(90deg,var(--gold1),var(--gold2)); transition:width .6s; }
-    .dot.on i{ width:100%; }
+  /* Calendar */
+  .day{ aspect-ratio:1; border-radius:999px; font-size:.9rem; transition:.25s; }
+  .day:not(:disabled):hover{ background:rgba(212,169,76,.18); }
+  .day:disabled{ color:#5b5242; cursor:not-allowed; text-decoration:line-through; text-decoration-color:rgba(255,255,255,.1); }
+  .day.sel{ background:linear-gradient(135deg,var(--gold1),var(--gold2)); color:#1a1305; font-weight:700; box-shadow:0 0 22px rgba(212,169,76,.6); }
+  .day.today{ box-shadow:inset 0 0 0 1px var(--gold2); }
+  .field{ width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(212,169,76,.25); border-radius:.9rem; padding:1rem 1.1rem; color:var(--champagne); transition:.3s; }
+  .field::placeholder{ color:#7d725f; }
+  .field:focus{ outline:none; border-color:var(--gold2); box-shadow:0 0 0 4px rgba(212,169,76,.15); }
+  .field.bad{ border-color:#d96a5b; }
+  .step{ display:none; } .step.active{ display:block; animation:up .6s forwards; opacity:0; }
+  .dot{ height:4px; flex:1; border-radius:4px; background:rgba(212,169,76,.2); overflow:hidden; }
+  .dot i{ display:block; height:100%; width:0; background:linear-gradient(90deg,var(--gold1),var(--gold2)); transition:width .6s; }
+  .dot.on i{ width:100%; }
 
-    /* Modal */
-    .modal{ position:fixed; inset:0; z-index:80; display:none; align-items:center; justify-content:center; padding:1.2rem; background:rgba(5,4,3,.88); backdrop-filter:blur(8px); }
-    .modal.open{ display:flex; animation:fade .4s; }
-    @keyframes fade{ from{ opacity:0 } }
-    .pop{ animation:pop .8s cubic-bezier(.2,1.2,.3,1); }
-    @keyframes pop{ from{ opacity:0; transform:scale(.8) translateY(30px); } }
-    .check circle,.check path{ stroke-dasharray:200; stroke-dashoffset:200; animation:draw 1.1s .3s forwards; }
-    .check path{ animation-delay:.9s; stroke-dasharray:60; stroke-dashoffset:60; }
-    @keyframes draw{ to{ stroke-dashoffset:0; } }
-    #confetti{ position:fixed; inset:0; z-index:90; pointer-events:none; }
+  /* Modal */
+  .modal{ position:fixed; inset:0; z-index:80; display:none; align-items:center; justify-content:center; padding:1.2rem; background:rgba(5,4,3,.88); backdrop-filter:blur(8px); }
+  .modal.open{ display:flex; animation:fade .4s; }
+  @keyframes fade{ from{ opacity:0 } }
+  .pop{ animation:pop .8s cubic-bezier(.2,1.2,.3,1); }
+  @keyframes pop{ from{ opacity:0; transform:scale(.8) translateY(30px); } }
+  .check circle,.check path{ stroke-dasharray:200; stroke-dashoffset:200; animation:draw 1.1s .3s forwards; }
+  .check path{ animation-delay:.9s; stroke-dasharray:60; stroke-dashoffset:60; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  #confetti{ position:fixed; inset:0; z-index:90; pointer-events:none; }
 
-    @media (prefers-reduced-motion:reduce){ *{ animation:none!important; transition:none!important; } .reveal,.hero-in,.step.active{ opacity:1; transform:none; } html{ scroll-behavior:auto; } }
-  </style>
+  @media (prefers-reduced-motion:reduce){ *{ animation:none!important; transition:none!important; } .reveal,.hero-in,.step.active{ opacity:1; transform:none; } html{ scroll-behavior:auto; } }
+</style>
 </head>
 <body>
 
@@ -113,124 +111,124 @@
 </header>
 
 <main>
-  <!-- HERO -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-5">
-    <div class="hero-bg" aria-hidden="true"></div><div class="hero-veil" aria-hidden="true"></div>
-    <div class="relative z-10 max-w-4xl pt-20">
-      <p class="hero-in text-sm text-[var(--gold1)] tracking-wide mb-6" style="animation-delay:.2s">Salon de evenimente pentru nunți de poveste</p>
-      <h1 class="hero-in font-serif text-5xl sm:text-6xl md:text-8xl leading-[1.05]" style="animation-delay:.5s">
-        <span class="gold-text">Chic Ballroom</span><br><span class="text-3xl sm:text-4xl md:text-5xl font-normal italic text-[var(--champagne)]">Măgurele, Prahova</span>
-      </h1>
-      <p class="hero-in mt-8 text-base md:text-xl text-[var(--muted)] max-w-2xl mx-auto leading-relaxed font-light" style="animation-delay:.9s">
-        Eleganță fără compromis, o sală cu lumini calde și terase în aer liber unde fiecare clipă devine o amintire pe care o vei purta toată viața.
+<!-- HERO -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden px-5">
+  <div class="hero-bg" aria-hidden="true"></div><div class="hero-veil" aria-hidden="true"></div>
+  <div class="relative z-10 max-w-4xl pt-20">
+    <p class="hero-in text-sm text-[var(--gold1)] tracking-wide mb-6" style="animation-delay:.2s">Salon de evenimente pentru nunți de poveste</p>
+    <h1 class="hero-in font-serif text-5xl sm:text-6xl md:text-8xl leading-[1.05]" style="animation-delay:.5s">
+      <span class="gold-text">Chic Ballroom</span><br><span class="text-3xl sm:text-4xl md:text-5xl font-normal italic text-[var(--champagne)]">Măgurele, Prahova</span>
+    </h1>
+    <p class="hero-in mt-8 text-base md:text-xl text-[var(--muted)] max-w-2xl mx-auto leading-relaxed font-light" style="animation-delay:.9s">
+      Eleganță fără compromis, o sală cu lumini calde și terase în aer liber unde fiecare clipă devine o amintire pe care o vei purta toată viața.
+    </p>
+    <div class="hero-in mt-10 flex flex-col sm:flex-row gap-4 justify-center" style="animation-delay:1.2s">
+      <a href="#rezervare" class="btn-gold">Rezervă Data Visurilor Tale</a>
+      <a href="#galerie" class="btn-ghost">Vezi galeria</a>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-px h-14 gold-line" style="background:linear-gradient(var(--gold2),transparent)"></div>
+</section>
+
+<!-- DESPRE & LOCALIZARE -->
+<section id="despre" class="py-24 md:py-36 px-5 md:px-8">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+    <div>
+      <h2 class="reveal font-serif text-4xl md:text-6xl leading-tight">Locul unde <span class="italic gold-text">povestea voastră</span> prinde viață</h2>
+      <div class="reveal d1 gold-line w-32 my-8"></div>
+      <p class="reveal d1 text-[var(--muted)] leading-loose max-w-xl">
+        Situat în Măgurele, județul Prahova, la câțiva kilometri de Ploiești, Chic Ballroom îmbină rafinamentul unui salon clasic cu libertatea spațiilor deschise. Fie că visați la o ceremonie sub cerul liber sau la un bal sub candelabre, aici totul se adaptează stilului vostru.
       </p>
-      <div class="hero-in mt-10 flex flex-col sm:flex-row gap-4 justify-center" style="animation-delay:1.2s">
-        <a href="#rezervare" class="btn-gold">Rezervă Data Visurilor Tale</a>
-        <a href="#galerie" class="btn-ghost">Vezi galeria</a>
+      <ul class="mt-10 grid sm:grid-cols-2 gap-4">
+        <li class="reveal card d1 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Sala interioară</h3><p class="text-sm text-[var(--muted)] mt-2">Spațiu climatizat, scenă, pistă de dans și decor personalizabil.</p></li>
+        <li class="reveal card d2 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Terasă & grădină</h3><p class="text-sm text-[var(--muted)] mt-2">Ceremonii în aer liber, cocktail de întâmpinare și sesiuni foto.</p></li>
+        <li class="reveal card d1 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Parcare</h3><p class="text-sm text-[var(--muted)] mt-2">Loc generos pentru invitați și mașinile mirilor.</p></li>
+        <li class="reveal card d2 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Echipă dedicată</h3><p class="text-sm text-[var(--muted)] mt-2">Consultanță de la prima vizită până la ultimul dans.</p></li>
+      </ul>
+    </div>
+    <div class="reveal d2 card !hover:transform-none overflow-hidden">
+      <iframe title="Hartă Chic Ballroom Măgurele Prahova" loading="lazy" class="w-full h-72 md:h-96 border-0" style="filter:invert(.92) hue-rotate(180deg) saturate(.6) brightness(.9)"
+        src="https://www.google.com/maps?q=Chic+Ballroom+Magurele+Prahova&output=embed"></iframe>
+      <div class="p-6 flex flex-wrap items-center justify-between gap-4">
+        <div><p class="font-serif text-xl">Chic Ballroom</p><p class="text-sm text-[var(--muted)]">Măgurele, județul Prahova, România</p></div>
+        <a class="btn-ghost text-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Chic+Ballroom+Magurele+Prahova">Deschide în Google Maps</a>
       </div>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-px h-14 gold-line" style="background:linear-gradient(var(--gold2),transparent)"></div>
-  </section>
+  </div>
+</section>
 
-  <!-- DESPRE & LOCALIZARE -->
-  <section id="despre" class="py-24 md:py-36 px-5 md:px-8">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-      <div>
-        <h2 class="reveal font-serif text-4xl md:text-6xl leading-tight">Locul unde <span class="italic gold-text">povestea voastră</span> prinde viață</h2>
-        <div class="reveal d1 gold-line w-32 my-8"></div>
-        <p class="reveal d1 text-[var(--muted)] leading-loose max-w-xl">
-          Situat în Măgurele, județul Prahova, la câțiva kilometri de Ploiești, Chic Ballroom îmbină rafinamentul unui salon clasic cu libertatea spațiilor deschise. Fie că visați la o ceremonie sub cerul liber sau la un bal sub candelabre, aici totul se adaptează stilului vostru.
-        </p>
-        <ul class="mt-10 grid sm:grid-cols-2 gap-4">
-          <li class="reveal card d1 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Sala interioară</h3><p class="text-sm text-[var(--muted)] mt-2">Spațiu climatizat, scenă, pistă de dans și decor personalizabil.</p></li>
-          <li class="reveal card d2 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Terasă & grădină</h3><p class="text-sm text-[var(--muted)] mt-2">Ceremonii în aer liber, cocktail de întâmpinare și sesiuni foto.</p></li>
-          <li class="reveal card d1 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Parcare</h3><p class="text-sm text-[var(--muted)] mt-2">Loc generos pentru invitați și mașinile mirilor.</p></li>
-          <li class="reveal card d2 p-5"><h3 class="font-serif text-xl text-[var(--gold1)]">Echipă dedicată</h3><p class="text-sm text-[var(--muted)] mt-2">Consultanță de la prima vizită până la ultimul dans.</p></li>
-        </ul>
+<!-- RECENZII -->
+<section id="recenzii" class="py-24 md:py-32 px-5 md:px-8 bg-[var(--coal)]">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="reveal font-serif text-4xl md:text-6xl">Ce spun <span class="italic gold-text">mirii fericiți</span></h2>
+      <div class="reveal d1 mt-8 inline-flex items-center gap-5 card !rounded-full px-8 py-4">
+        <span class="font-serif text-5xl gold-text">4.1</span>
+        <div class="text-left"><div class="text-[var(--gold2)] text-xl tracking-widest" aria-label="4.1 din 5 stele">★★★★☆</div>
+        <p class="text-xs text-[var(--muted)]">Rating Google · 80+ recenzii</p></div>
       </div>
-      <div class="reveal d2 card !hover:transform-none overflow-hidden">
-        <iframe title="Hartă Chic Ballroom Măgurele Prahova" loading="lazy" class="w-full h-72 md:h-96 border-0" style="filter:invert(.92) hue-rotate(180deg) saturate(.6) brightness(.9)"
-                src="https://www.google.com/maps?q=Chic+Ballroom+Magurele+Prahova&output=embed"></iframe>
-        <div class="p-6 flex flex-wrap items-center justify-between gap-4">
-          <div><p class="font-serif text-xl">Chic Ballroom</p><p class="text-sm text-[var(--muted)]">Măgurele, județul Prahova, România</p></div>
-          <a class="btn-ghost text-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Chic+Ballroom+Magurele+Prahova">Deschide în Google Maps</a>
+    </div>
+    <div id="reviews" class="grid md:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+    <p class="text-center text-xs text-[#7d725f] mt-8">Recenziile de mai sus sunt exemple ilustrative. Înlocuiește-le cu textele reale de pe profilul Google al locației.</p>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="py-24 md:py-36 px-5 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="reveal font-serif text-4xl md:text-6xl text-center mb-4">Moodboard</h2>
+    <p class="reveal d1 text-center text-[var(--muted)] mb-14">Atmosfere, aranjamente și lumini. Apasă pe o imagine pentru a o mări.</p>
+    <div id="gallery" class="grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] md:auto-rows-[220px] gap-3 md:gap-4"></div>
+  </div>
+</section>
+
+<!-- REZERVARE -->
+<section id="rezervare" class="py-24 md:py-36 px-5 md:px-8 relative bg-[var(--coal)]">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="reveal font-serif text-4xl md:text-6xl">Blochează <span class="italic gold-text">data visurilor</span></h2>
+      <p class="reveal d1 text-[var(--muted)] mt-4">Două pași simpli. Fără plată acum.</p>
+    </div>
+    <div class="reveal d1 card !hover:transform-none p-6 md:p-10" style="transform:none">
+      <div class="flex gap-2 mb-8" aria-hidden="true"><div class="dot on" id="dot1"><i></i></div><div class="dot" id="dot2"><i></i></div></div>
+
+      <!-- Pasul 1 -->
+      <div id="step1" class="step active">
+        <h3 class="font-serif text-2xl mb-1">Data și numărul de invitați</h3>
+        <p class="text-sm text-[var(--muted)] mb-6">Alege ziua evenimentului. Datele trecute nu pot fi selectate.</p>
+        <div class="flex items-center justify-between mb-4">
+          <button id="prev" type="button" class="w-10 h-10 rounded-full border border-[rgba(212,169,76,.4)] hover:bg-[rgba(212,169,76,.15)]" aria-label="Luna anterioară">‹</button>
+          <p id="monthLabel" class="font-serif text-xl capitalize"></p>
+          <button id="next" type="button" class="w-10 h-10 rounded-full border border-[rgba(212,169,76,.4)] hover:bg-[rgba(212,169,76,.15)]" aria-label="Luna următoare">›</button>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="grid grid-cols-7 gap-1 text-center text-xs text-[var(--muted)] mb-2"><span>Lu</span><span>Ma</span><span>Mi</span><span>Jo</span><span>Vi</span><span>Sâ</span><span>Du</span></div>
+        <div id="days" class="grid grid-cols-7 gap-1"></div>
+        <p id="dateInfo" class="mt-4 text-sm text-[var(--gold1)] min-h-[1.25rem]"></p>
 
-  <!-- RECENZII -->
-  <section id="recenzii" class="py-24 md:py-32 px-5 md:px-8 bg-[var(--coal)]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="reveal font-serif text-4xl md:text-6xl">Ce spun <span class="italic gold-text">mirii fericiți</span></h2>
-        <div class="reveal d1 mt-8 inline-flex items-center gap-5 card !rounded-full px-8 py-4">
-          <span class="font-serif text-5xl gold-text">4.1</span>
-          <div class="text-left"><div class="text-[var(--gold2)] text-xl tracking-widest" aria-label="4.1 din 5 stele">★★★★☆</div>
-            <p class="text-xs text-[var(--muted)]">Rating Google · 80+ recenzii</p></div>
+        <div class="mt-8">
+          <label for="guests" class="flex justify-between text-sm mb-3"><span>Număr estimat de invitați</span><span id="guestsVal" class="font-serif text-2xl gold-text">150</span></label>
+          <input id="guests" type="range" min="30" max="500" step="10" value="150" class="w-full accent-[#d4a94c]">
         </div>
+        <button id="toStep2" type="button" class="btn-gold w-full mt-8" disabled>Continuă</button>
       </div>
-      <div id="reviews" class="grid md:grid-cols-2 lg:grid-cols-4 gap-5"></div>
-      <p class="text-center text-xs text-[#7d725f] mt-8">Recenziile de mai sus sunt exemple ilustrative. Înlocuiește-le cu textele reale de pe profilul Google al locației.</p>
-    </div>
-  </section>
 
-  <!-- GALERIE -->
-  <section id="galerie" class="py-24 md:py-36 px-5 md:px-8">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="reveal font-serif text-4xl md:text-6xl text-center mb-4">Moodboard</h2>
-      <p class="reveal d1 text-center text-[var(--muted)] mb-14">Atmosfere, aranjamente și lumini. Apasă pe o imagine pentru a o mări.</p>
-      <div id="gallery" class="grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] md:auto-rows-[220px] gap-3 md:gap-4"></div>
-    </div>
-  </section>
-
-  <!-- REZERVARE -->
-  <section id="rezervare" class="py-24 md:py-36 px-5 md:px-8 relative bg-[var(--coal)]">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="reveal font-serif text-4xl md:text-6xl">Blochează <span class="italic gold-text">data visurilor</span></h2>
-        <p class="reveal d1 text-[var(--muted)] mt-4">Două pași simpli. Fără plată acum.</p>
-      </div>
-      <div class="reveal d1 card !hover:transform-none p-6 md:p-10" style="transform:none">
-        <div class="flex gap-2 mb-8" aria-hidden="true"><div class="dot on" id="dot1"><i></i></div><div class="dot" id="dot2"><i></i></div></div>
-
-        <!-- Pasul 1 -->
-        <div id="step1" class="step active">
-          <h3 class="font-serif text-2xl mb-1">Data și numărul de invitați</h3>
-          <p class="text-sm text-[var(--muted)] mb-6">Alege ziua evenimentului. Datele trecute nu pot fi selectate.</p>
-          <div class="flex items-center justify-between mb-4">
-            <button id="prev" type="button" class="w-10 h-10 rounded-full border border-[rgba(212,169,76,.4)] hover:bg-[rgba(212,169,76,.15)]" aria-label="Luna anterioară">‹</button>
-            <p id="monthLabel" class="font-serif text-xl capitalize"></p>
-            <button id="next" type="button" class="w-10 h-10 rounded-full border border-[rgba(212,169,76,.4)] hover:bg-[rgba(212,169,76,.15)]" aria-label="Luna următoare">›</button>
-          </div>
-          <div class="grid grid-cols-7 gap-1 text-center text-xs text-[var(--muted)] mb-2"><span>Lu</span><span>Ma</span><span>Mi</span><span>Jo</span><span>Vi</span><span>Sâ</span><span>Du</span></div>
-          <div id="days" class="grid grid-cols-7 gap-1"></div>
-          <p id="dateInfo" class="mt-4 text-sm text-[var(--gold1)] min-h-[1.25rem]"></p>
-
-          <div class="mt-8">
-            <label for="guests" class="flex justify-between text-sm mb-3"><span>Număr estimat de invitați</span><span id="guestsVal" class="font-serif text-2xl gold-text">150</span></label>
-            <input id="guests" type="range" min="30" max="500" step="10" value="150" class="w-full accent-[#d4a94c]">
-          </div>
-          <button id="toStep2" type="button" class="btn-gold w-full mt-8" disabled>Continuă</button>
+      <!-- Pasul 2 -->
+      <form id="step2" class="step" novalidate>
+        <h3 class="font-serif text-2xl mb-1">Datele tale de contact</h3>
+        <p id="recap" class="text-sm text-[var(--gold1)] mb-6"></p>
+        <div class="space-y-4">
+          <div><input id="name" class="field" type="text" placeholder="Nume complet" autocomplete="name"><p class="err text-xs text-[#e58a7d] mt-1 hidden"></p></div>
+          <div><input id="phone" class="field" type="tel" placeholder="Număr de telefon (ex: 0722 123 456)" autocomplete="tel"><p class="err text-xs text-[#e58a7d] mt-1 hidden"></p></div>
+          <div><input id="email" class="field" type="email" placeholder="Adresa de e-mail" autocomplete="email"><p class="err text-xs text-[#e58a7d] mt-1 hidden"></p></div>
         </div>
-
-        <!-- Pasul 2 -->
-        <form id="step2" class="step" novalidate>
-          <h3 class="font-serif text-2xl mb-1">Datele tale de contact</h3>
-          <p id="recap" class="text-sm text-[var(--gold1)] mb-6"></p>
-          <div class="space-y-4">
-            <div><input id="name" class="field" type="text" placeholder="Nume complet" autocomplete="name"><p class="err text-xs text-[#e58a7d] mt-1 hidden"></p></div>
-            <div><input id="phone" class="field" type="tel" placeholder="Număr de telefon (ex: 0722 123 456)" autocomplete="tel"><p class="err text-xs text-[#e58a7d] mt-1 hidden"></p></div>
-            <div><input id="email" class="field" type="email" placeholder="Adresa de e-mail" autocomplete="email"><p class="err text-xs text-[#e58a7d] mt-1 hidden"></p></div>
-          </div>
-          <div class="flex flex-col-reverse sm:flex-row gap-3 mt-8">
-            <button id="back" type="button" class="btn-ghost sm:w-1/3">Înapoi</button>
-            <button type="submit" class="btn-gold sm:flex-1">Blochează data</button>
-          </div>
-        </form>
-      </div>
+        <div class="flex flex-col-reverse sm:flex-row gap-3 mt-8">
+          <button id="back" type="button" class="btn-ghost sm:w-1/3">Înapoi</button>
+          <button type="submit" class="btn-gold sm:flex-1">Blochează data</button>
+        </div>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <footer class="py-12 text-center border-t border-[rgba(212,169,76,.15)]">
@@ -258,253 +256,205 @@
 <canvas id="confetti"></canvas>
 
 <script>
-  (() => {
-    'use strict';
-    const $ = (s, r = document) => r.querySelector(s);
-    const STORE_KEY = 'chicBallroomLeads';
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
 
-    /* ---------- Supabase Config ---------- */
-    const SUPABASE_URL = 'https://ogxxkpdnydcpokctflmy.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_MY0iRVxBivJ9asNGyGq32A_TY-pEF9V'; // Pune cheia anon public din Project Settings -> API
-    const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+  /* ---------- Date blocate manual (ex: contracte cu avans achitat) ---------- */
+  const BUSY_DATES = [
+    // Adaugă aici datele blocate în format 'AAAA-LL-ZZ'
+    // ex: '2026-06-20', '2026-07-18'
+  ];
 
-    /* ---------- Date de conținut ---------- */
-    const REVIEWS = [
-      { n: 'Andreea & Mihai', t: 'Sala arată exact ca în poze, iar personalul ne-a ajutat cu fiecare detaliu. Invitații încă vorbesc despre seara aceea.' },
-      { n: 'Cristina P.', t: 'Terasa pentru ceremonie a fost magică la apus. Organizare bună și atmosferă elegantă.' },
-      { n: 'Daniel & Ioana', t: 'Locație frumoasă, spațioasă, cu parcare mare. Ne-am simțit îngrijiți de la vizită până la nuntă.' },
-      { n: 'Elena M.', t: 'Un loc cochet pentru o nuntă frumoasă. Am apreciat flexibilitatea la decor și seriozitatea echipei.' }
-    ];
-    const IMG = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
-    const GALLERY = [
-      ['photo-1519741497674-611481863552', 'Ceremonia', 'col-span-2 row-span-2'],
-      ['photo-1511795409834-ef04bbd61622', 'Masa mirilor', ''],
-      ['photo-1464366400600-7168b8af9bc3', 'Aranjamente florale', 'row-span-2'],
-      ['photo-1478146896981-b80fe463b330', 'Lumini de seară', ''],
-      ['photo-1465495976277-4387d4b0b4c6', 'Terasă în aer liber', 'col-span-2'],
-      ['photo-1519225421980-715cb0215aed', 'Sala de bal', ''],
-      ['photo-1469371670807-013ccf25f16a', 'Primul dans', '']
-    ];
+  /* ---------- Date de conținut ---------- */
+  const REVIEWS = [
+    { n: 'Andreea & Mihai', t: 'Sala arată exact ca în poze, iar personalul ne-a ajutat cu fiecare detaliu. Invitații încă vorbesc despre seara aceea.' },
+    { n: 'Cristina P.', t: 'Terasa pentru ceremonie a fost magică la apus. Organizare bună și atmosferă elegantă.' },
+    { n: 'Daniel & Ioana', t: 'Locație frumoasă, spațioasă, cu parcare mare. Ne-am simțit îngrijiți de la vizită până la nuntă.' },
+    { n: 'Elena M.', t: 'Un loc cochet pentru o nuntă frumoasă. Am apreciat flexibilitatea la decor și seriozitatea echipei.' }
+  ];
+  const IMG = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
+  const GALLERY = [
+    ['photo-1519741497674-611481863552', 'Ceremonia', 'col-span-2 row-span-2'],
+    ['photo-1511795409834-ef04bbd61622', 'Masa mirilor', ''],
+    ['photo-1464366400600-7168b8af9bc3', 'Aranjamente florale', 'row-span-2'],
+    ['photo-1478146896981-b80fe463b330', 'Lumini de seară', ''],
+    ['photo-1465495976277-4387d4b0b4c6', 'Terasă în aer liber', 'col-span-2'],
+    ['photo-1519225421980-715cb0215aed', 'Sala de bal', ''],
+    ['photo-1469371670807-013ccf25f16a', 'Primul dans', '']
+  ];
 
-    /* ---------- Reviews ---------- */
-    $('#reviews').innerHTML = REVIEWS.map((r, i) => `
+  /* ---------- Reviews ---------- */
+  $('#reviews').innerHTML = REVIEWS.map((r, i) => `
     <article class="reveal card d${(i % 3) + 1} p-6 flex flex-col">
       <div class="text-[var(--gold2)] tracking-widest mb-4" aria-label="5 stele">★★★★★</div>
       <p class="text-[var(--champagne)]/90 leading-relaxed flex-1 text-sm">„${r.t}”</p>
       <p class="font-serif mt-5 text-[var(--gold1)]">${r.n}</p>
     </article>`).join('');
 
-    /* ---------- Galerie + lightbox ---------- */
-    $('#gallery').innerHTML = GALLERY.map(([id, cap, cls], i) => `
+  /* ---------- Galerie + lightbox ---------- */
+  $('#gallery').innerHTML = GALLERY.map(([id, cap, cls], i) => `
     <button type="button" class="reveal g-item ${cls}" data-src="${IMG(id)}" data-cap="${cap}" style="transition-delay:${(i % 4) * .08}s" aria-label="Mărește: ${cap}">
       <img src="${IMG(id)}" alt="${cap}" loading="lazy" onerror="this.style.display='none'">
     </button>`).join('');
-    const lb = $('#lightbox');
-    $('#gallery').addEventListener('click', e => {
-      const b = e.target.closest('.g-item'); if (!b) return;
-      $('#lbImg').src = b.dataset.src; $('#lbImg').alt = b.dataset.cap; $('#lbCap').textContent = b.dataset.cap;
-      lb.classList.add('open'); document.body.style.overflow = 'hidden';
-    });
-    const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
-    lb.addEventListener('click', closeLb);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLb(); closeOk(); } });
+  const lb = $('#lightbox');
+  $('#gallery').addEventListener('click', e => {
+    const b = e.target.closest('.g-item'); if (!b) return;
+    $('#lbImg').src = b.dataset.src; $('#lbImg').alt = b.dataset.cap; $('#lbCap').textContent = b.dataset.cap;
+    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  });
+  const closeLb = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+  lb.addEventListener('click', closeLb);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLb(); closeOk(); } });
 
-    /* ---------- Animații la scroll + navigație ---------- */
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-    const nav = $('#nav');
-    const onScroll = () => nav.classList.toggle('solid', scrollY > 60);
-    addEventListener('scroll', onScroll, { passive: true }); onScroll();
-    $('#yr').textContent = new Date().getFullYear();
+  /* ---------- Animații la scroll + navigație ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const nav = $('#nav');
+  const onScroll = () => nav.classList.toggle('solid', scrollY > 60);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  $('#yr').textContent = new Date().getFullYear();
 
-    /* ---------- Stocare localStorage (backup local) ---------- */
-    const loadLeads = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; } catch { return []; } };
-    const saveLead = lead => {
-      try { const all = loadLeads(); all.push(lead); localStorage.setItem(STORE_KEY, JSON.stringify(all)); return true; }
-      catch (err) { console.warn('localStorage indisponibil:', err); return false; }
+  /* ---------- Calendar ---------- */
+  const MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  let view = new Date(today.getFullYear(), today.getMonth(), 1);
+  let selected = null;
+  const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const fmt = d => d.toLocaleDateString('ro-RO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+  const taken = () => new Set(BUSY_DATES);
+
+  function renderCal() {
+    $('#monthLabel').textContent = `${MONTHS[view.getMonth()]} ${view.getFullYear()}`;
+    $('#prev').disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
+    const first = (new Date(view.getFullYear(), view.getMonth(), 1).getDay() + 6) % 7; // luni = 0
+    const count = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    const busy = taken();
+    let html = '<span></span>'.repeat(first);
+    for (let d = 1; d <= count; d++) {
+      const date = new Date(view.getFullYear(), view.getMonth(), d);
+      const dis = date < today || busy.has(iso(date));
+      const cls = ['day', selected && iso(date) === iso(selected) ? 'sel' : '', +date === +today ? 'today' : ''].join(' ');
+      html += `<button type="button" class="${cls}" data-d="${iso(date)}" ${dis ? 'disabled' : ''}>${d}</button>`;
+    }
+    $('#days').innerHTML = html;
+  }
+  $('#prev').onclick = () => { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); };
+  $('#next').onclick = () => { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); };
+  $('#days').addEventListener('click', e => {
+    const b = e.target.closest('.day'); if (!b || b.disabled) return;
+    const [y, m, d] = b.dataset.d.split('-').map(Number); selected = new Date(y, m - 1, d);
+    $('#dateInfo').textContent = 'Data aleasă: ' + fmt(selected);
+    $('#toStep2').disabled = false; renderCal();
+  });
+  $('#guests').addEventListener('input', e => $('#guestsVal').textContent = e.target.value);
+  renderCal();
+
+  /* ---------- Pași ---------- */
+  const goStep = n => {
+    $('#step1').classList.toggle('active', n === 1); $('#step2').classList.toggle('active', n === 2);
+    $('#dot2').classList.toggle('on', n === 2);
+    if (n === 2) $('#recap').textContent = `${fmt(selected)} · aprox. ${$('#guests').value} invitați`;
+    $('#rezervare').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  $('#toStep2').onclick = () => selected && goStep(2);
+  $('#back').onclick = () => goStep(1);
+
+  /* ---------- Validare + trimitere Web3Forms ---------- */
+  const rules = {
+    name:  v => v.trim().split(/\s+/).filter(Boolean).length >= 2 || 'Scrie numele și prenumele.',
+    phone: v => /^(\+?40|0)7\d{8}$|^(\+?40|0)[23]\d{8}$/.test(v.replace(/[\s.\-()]/g, '')) || 'Introdu un număr valid (ex: 0722 123 456).',
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Introdu o adresă de e-mail validă.'
+  };
+  const check = id => {
+    const el = $('#' + id), r = rules[id](el.value), err = el.parentElement.querySelector('.err');
+    el.classList.toggle('bad', r !== true); err.classList.toggle('hidden', r === true); err.textContent = r === true ? '' : r;
+    return r === true;
+  };
+  Object.keys(rules).forEach(id => $('#' + id).addEventListener('blur', () => check(id)));
+
+  $('#step2').addEventListener('submit', async e => {
+    e.preventDefault();
+    const ok = Object.keys(rules).map(check).every(Boolean);
+    if (!ok || !selected) return;
+
+    const btn = $('#step2 button[type="submit"]');
+    const oldBtnText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Se trimite...';
+
+    const lead = {
+      nume: $('#name').value.trim(),
+      telefon: $('#phone').value.trim(),
+      email: $('#email').value.trim(),
+      dataISO: iso(selected),
+      dataEveniment: fmt(selected),
+      invitati: Number($('#guests').value)
     };
 
-    /* ---------- Preia datele blocate din Supabase ---------- */
-    let remoteBusyDates = new Set();
-    async function syncTakenDates() {
-      if (!supabase) return;
-      try {
-        const { data, error } = await supabase.from('rezervari').select('data');
-        if (error) throw error;
-        if (data) {
-          remoteBusyDates = new Set(data.map(item => item.data));
-          renderCal(); // Re-randam calendarul cu datele blocate din cloud
-        }
-      } catch (err) {
-        console.warn('Nu s-au putut încărca rezervările din Supabase:', err);
-      }
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: "fd85dd1b-36fc-4004-87ea-5f3c8ee05d82",
+          subject: `Rezervare nouă Chic Ballroom - ${lead.nume}`,
+          from_name: "Site Chic Ballroom",
+          "Nume Client": lead.nume,
+          "Telefon": lead.telefon,
+          "Email Client": lead.email,
+          "Data Eveniment": lead.dataEveniment,
+          "Numar Invitati": lead.invitati
+        })
+      });
+    } catch (err) {
+      console.warn('Trimiterea notificării pe e-mail a eșuat:', err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = oldBtnText;
     }
 
-    /* ---------- Calendar ---------- */
-    const MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
-    const today = new Date(); today.setHours(0, 0, 0, 0);
-    let view = new Date(today.getFullYear(), today.getMonth(), 1);
-    let selected = null;
-    const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-    const fmt = d => d.toLocaleDateString('ro-RO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    openSuccess(lead);
+  });
 
-    const taken = () => {
-      const local = loadLeads().map(l => l.dataISO);
-      return new Set([...local, ...remoteBusyDates]);
-    };
+  /* ---------- Modal succes ---------- */
+  function openSuccess(l) {
+    $('#okMsg').textContent = `Datele tale au fost înregistrate cu succes! Patronul firmei te va contacta în cel mai scurt timp la numărul ${l.telefon} pentru stabilirea tuturor detaliilor legate de avans și contractul de nuntă pre-generat.`;
+    $('#okDate').textContent = l.dataEveniment;
+    $('#success').classList.add('open'); document.body.style.overflow = 'hidden';
+    burst();
+  }
+  function closeOk() {
+    if (!$('#success').classList.contains('open')) return;
+    $('#success').classList.remove('open'); document.body.style.overflow = '';
+    $('#step2').reset(); selected = null; $('#dateInfo').textContent = ''; $('#toStep2').disabled = true;
+    renderCal(); goStep(1);
+  }
+  $('#okClose').onclick = closeOk;
 
-    function renderCal() {
-      $('#monthLabel').textContent = `${MONTHS[view.getMonth()]} ${view.getFullYear()}`;
-      $('#prev').disabled = view <= new Date(today.getFullYear(), today.getMonth(), 1);
-      const first = (new Date(view.getFullYear(), view.getMonth(), 1).getDay() + 6) % 7; // luni = 0
-      const count = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
-      const busy = taken();
-      let html = '<span></span>'.repeat(first);
-      for (let d = 1; d <= count; d++) {
-        const date = new Date(view.getFullYear(), view.getMonth(), d);
-        const dis = date < today || busy.has(iso(date));
-        const cls = ['day', selected && iso(date) === iso(selected) ? 'sel' : '', +date === +today ? 'today' : ''].join(' ');
-        html += `<button type="button" class="${cls}" data-d="${iso(date)}" ${dis ? 'disabled' : ''}>${d}</button>`;
-      }
-      $('#days').innerHTML = html;
-    }
-    $('#prev').onclick = () => { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); };
-    $('#next').onclick = () => { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); };
-    $('#days').addEventListener('click', e => {
-      const b = e.target.closest('.day'); if (!b || b.disabled) return;
-      const [y, m, d] = b.dataset.d.split('-').map(Number); selected = new Date(y, m - 1, d);
-      $('#dateInfo').textContent = 'Data aleasă: ' + fmt(selected);
-      $('#toStep2').disabled = false; renderCal();
-    });
-    $('#guests').addEventListener('input', e => $('#guestsVal').textContent = e.target.value);
-
-    renderCal();
-    syncTakenDates(); // Sincronizează datele cu Supabase la deschidere
-
-    /* ---------- Pași ---------- */
-    const goStep = n => {
-      $('#step1').classList.toggle('active', n === 1); $('#step2').classList.toggle('active', n === 2);
-      $('#dot2').classList.toggle('on', n === 2);
-      if (n === 2) $('#recap').textContent = `${fmt(selected)} · aprox. ${$('#guests').value} invitați`;
-      $('#rezervare').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-    $('#toStep2').onclick = () => selected && goStep(2);
-    $('#back').onclick = () => goStep(1);
-
-    /* ---------- Validare + trimitere Supabase & Web3Forms ---------- */
-    const rules = {
-      name:  v => v.trim().split(/\s+/).filter(Boolean).length >= 2 || 'Scrie numele și prenumele.',
-      phone: v => /^(\+?40|0)7\d{8}$|^(\+?40|0)[23]\d{8}$/.test(v.replace(/[\s.\-()]/g, '')) || 'Introdu un număr valid (ex: 0722 123 456).',
-      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Introdu o adresă de e-mail validă.'
-    };
-    const check = id => {
-      const el = $('#' + id), r = rules[id](el.value), err = el.parentElement.querySelector('.err');
-      el.classList.toggle('bad', r !== true); err.classList.toggle('hidden', r === true); err.textContent = r === true ? '' : r;
-      return r === true;
-    };
-    Object.keys(rules).forEach(id => $('#' + id).addEventListener('blur', () => check(id)));
-
-    $('#step2').addEventListener('submit', async e => {
-      e.preventDefault();
-      const ok = Object.keys(rules).map(check).every(Boolean);
-      if (!ok || !selected) return;
-
-      const btn = $('#step2 button[type="submit"]');
-      const oldBtnText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Se trimite...';
-
-      const lead = {
-        nume: $('#name').value.trim(),
-        telefon: $('#phone').value.trim(),
-        email: $('#email').value.trim(),
-        dataISO: iso(selected),
-        dataEveniment: fmt(selected),
-        invitati: Number($('#guests').value),
-        creatLa: new Date().toISOString()
-      };
-
-      saveLead(lead);
-
-      // 1. Salvare în Supabase (potrivește exact coloanele din tabel: data, nume, telefon, email)
-      if (supabase) {
-        try {
-          const { error } = await supabase.from('rezervari').insert([{
-            data: lead.dataISO,
-            nume: lead.nume,
-            telefon: lead.telefon,
-            email: lead.email
-          }]);
-          if (error) console.error('Eroare salvare Supabase:', error);
-          else remoteBusyDates.add(lead.dataISO);
-        } catch (sbErr) {
-          console.warn('Eroare rețea Supabase:', sbErr);
-        }
-      }
-
-      // 2. Trimitere e-mail prin Web3Forms
-      try {
-        await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: "fd85dd1b-36fc-4004-87ea-5f3c8ee05d82",
-            subject: `Rezervare nouă Chic Ballroom - ${lead.nume}`,
-            from_name: "Site Chic Ballroom",
-            "Nume Client": lead.nume,
-            "Telefon": lead.telefon,
-            "Email Client": lead.email,
-            "Data Eveniment": lead.dataEveniment,
-            "Numar Invitati": lead.invitati
-          })
-        });
-      } catch (err) {
-        console.warn('Trimiterea notificării pe e-mail a eșuat:', err);
-      } finally {
-        btn.disabled = false;
-        btn.textContent = oldBtnText;
-      }
-
-      openSuccess(lead);
-    });
-
-    /* ---------- Modal succes ---------- */
-    function openSuccess(l) {
-      $('#okMsg').textContent = `Datele tale au fost înregistrate cu succes! Patronul firmei te va contacta în cel mai scurt timp la numărul ${l.telefon} pentru stabilirea tuturor detaliilor legate de avans și contractul de nuntă pre-generat.`;
-      $('#okDate').textContent = l.dataEveniment;
-      $('#success').classList.add('open'); document.body.style.overflow = 'hidden';
-      burst();
-    }
-    function closeOk() {
-      if (!$('#success').classList.contains('open')) return;
-      $('#success').classList.remove('open'); document.body.style.overflow = '';
-      $('#step2').reset(); selected = null; $('#dateInfo').textContent = ''; $('#toStep2').disabled = true;
-      renderCal(); goStep(1);
-    }
-    $('#okClose').onclick = closeOk;
-
-    /* ---------- Confetti auriu (canvas) ---------- */
-    function burst() {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const cv = $('#confetti'), cx = cv.getContext('2d');
-      cv.width = innerWidth; cv.height = innerHeight;
-      const cols = ['#f6e3a1', '#d4a94c', '#8d6a22', '#f3e6cf', '#ffffff'];
-      const P = Array.from({ length: 170 }, () => ({
-        x: cv.width / 2, y: cv.height / 2, vx: (Math.random() - .5) * 18, vy: Math.random() * -16 - 3,
-        w: 5 + Math.random() * 6, h: 8 + Math.random() * 8, r: Math.random() * 6, vr: (Math.random() - .5) * .4, c: cols[(Math.random() * cols.length) | 0]
-      }));
-      let f = 0;
-      (function tick() {
-        cx.clearRect(0, 0, cv.width, cv.height);
-        P.forEach(p => { p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
-          cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r); cx.fillStyle = p.c; cx.globalAlpha = Math.max(0, 1 - f / 220); cx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); cx.restore(); });
-        if (++f < 220) requestAnimationFrame(tick); else cx.clearRect(0, 0, cv.width, cv.height);
-      })();
-    }
-  })();
+  /* ---------- Confetti auriu (canvas) ---------- */
+  function burst() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const cv = $('#confetti'), cx = cv.getContext('2d');
+    cv.width = innerWidth; cv.height = innerHeight;
+    const cols = ['#f6e3a1', '#d4a94c', '#8d6a22', '#f3e6cf', '#ffffff'];
+    const P = Array.from({ length: 170 }, () => ({
+      x: cv.width / 2, y: cv.height / 2, vx: (Math.random() - .5) * 18, vy: Math.random() * -16 - 3,
+      w: 5 + Math.random() * 6, h: 8 + Math.random() * 8, r: Math.random() * 6, vr: (Math.random() - .5) * .4, c: cols[(Math.random() * cols.length) | 0]
+    }));
+    let f = 0;
+    (function tick() {
+      cx.clearRect(0, 0, cv.width, cv.height);
+      P.forEach(p => { p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+        cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r); cx.fillStyle = p.c; cx.globalAlpha = Math.max(0, 1 - f / 220); cx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); cx.restore(); });
+      if (++f < 220) requestAnimationFrame(tick); else cx.clearRect(0, 0, cv.width, cv.height);
+    })();
+  }
+})();
 </script>
 </body>
 </html>
