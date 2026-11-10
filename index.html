@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- SDK Supabase Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     tailwind.config = { theme: { extend: { fontFamily: {
             serif: ['"Playfair Display"', 'Georgia', 'serif'],
@@ -261,6 +263,11 @@
     const $ = (s, r = document) => r.querySelector(s);
     const STORE_KEY = 'chicBallroomLeads';
 
+    /* ---------- Supabase Config ---------- */
+    const SUPABASE_URL = 'https://ogxxkpdnydcpokctflmy.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_MY0iRVxBivJ9asNGyGq32A_TY-pEF9V'; // Pune cheia anon public din Project Settings -> API
+    const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+
     /* ---------- Date de conținut ---------- */
     const REVIEWS = [
       { n: 'Andreea & Mihai', t: 'Sala arată exact ca în poze, iar personalul ne-a ajutat cu fiecare detaliu. Invitații încă vorbesc despre seara aceea.' },
@@ -310,12 +317,28 @@
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
     $('#yr').textContent = new Date().getFullYear();
 
-    /* ---------- Stocare localStorage (cu protecție la erori) ---------- */
+    /* ---------- Stocare localStorage (backup local) ---------- */
     const loadLeads = () => { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || []; } catch { return []; } };
     const saveLead = lead => {
       try { const all = loadLeads(); all.push(lead); localStorage.setItem(STORE_KEY, JSON.stringify(all)); return true; }
       catch (err) { console.warn('localStorage indisponibil:', err); return false; }
     };
+
+    /* ---------- Preia datele blocate din Supabase ---------- */
+    let remoteBusyDates = new Set();
+    async function syncTakenDates() {
+      if (!supabase) return;
+      try {
+        const { data, error } = await supabase.from('rezervari').select('data');
+        if (error) throw error;
+        if (data) {
+          remoteBusyDates = new Set(data.map(item => item.data));
+          renderCal(); // Re-randam calendarul cu datele blocate din cloud
+        }
+      } catch (err) {
+        console.warn('Nu s-au putut încărca rezervările din Supabase:', err);
+      }
+    }
 
     /* ---------- Calendar ---------- */
     const MONTHS = ['ianuarie','februarie','martie','aprilie','mai','iunie','iulie','august','septembrie','octombrie','noiembrie','decembrie'];
@@ -324,7 +347,11 @@
     let selected = null;
     const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
     const fmt = d => d.toLocaleDateString('ro-RO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-    const taken = () => new Set(loadLeads().map(l => l.dataISO)); // date deja solicitate în acest browser
+
+    const taken = () => {
+      const local = loadLeads().map(l => l.dataISO);
+      return new Set([...local, ...remoteBusyDates]);
+    };
 
     function renderCal() {
       $('#monthLabel').textContent = `${MONTHS[view.getMonth()]} ${view.getFullYear()}`;
@@ -350,7 +377,9 @@
       $('#toStep2').disabled = false; renderCal();
     });
     $('#guests').addEventListener('input', e => $('#guestsVal').textContent = e.target.value);
+
     renderCal();
+    syncTakenDates(); // Sincronizează datele cu Supabase la deschidere
 
     /* ---------- Pași ---------- */
     const goStep = n => {
@@ -362,7 +391,7 @@
     $('#toStep2').onclick = () => selected && goStep(2);
     $('#back').onclick = () => goStep(1);
 
-    /* ---------- Validare + trimitere Web3Forms ---------- */
+    /* ---------- Validare + trimitere Supabase & Web3Forms ---------- */
     const rules = {
       name:  v => v.trim().split(/\s+/).filter(Boolean).length >= 2 || 'Scrie numele și prenumele.',
       phone: v => /^(\+?40|0)7\d{8}$|^(\+?40|0)[23]\d{8}$/.test(v.replace(/[\s.\-()]/g, '')) || 'Introdu un număr valid (ex: 0722 123 456).',
@@ -397,6 +426,23 @@
 
       saveLead(lead);
 
+      // 1. Salvare în Supabase (potrivește exact coloanele din tabel: data, nume, telefon, email)
+      if (supabase) {
+        try {
+          const { error } = await supabase.from('rezervari').insert([{
+            data: lead.dataISO,
+            nume: lead.nume,
+            telefon: lead.telefon,
+            email: lead.email
+          }]);
+          if (error) console.error('Eroare salvare Supabase:', error);
+          else remoteBusyDates.add(lead.dataISO);
+        } catch (sbErr) {
+          console.warn('Eroare rețea Supabase:', sbErr);
+        }
+      }
+
+      // 2. Trimitere e-mail prin Web3Forms
       try {
         await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
